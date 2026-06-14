@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Firefly\FilamentBlog\Database\Factories\PostFactory;
 use Firefly\FilamentBlog\Enums\PostStatus;
@@ -176,9 +177,9 @@ class Post extends Model
                                 ->columnSpanFull(),
                         ]),
                     TiptapEditor::make('body')
-                        ->profile('default')
-                        ->disableFloatingMenus()
-                        ->extraInputAttributes(['style' => 'max-height: 30rem; min-height: 24rem'])
+                        ->profile('medium')
+                        ->output(TiptapOutput::Json)
+                        ->extraInputAttributes(['style' => 'min-height: 24rem'])
                         ->required()
                         ->columnSpanFull(),
                     Fieldset::make('Feature Image')
