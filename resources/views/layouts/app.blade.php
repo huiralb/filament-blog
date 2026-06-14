@@ -18,6 +18,9 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <!-- Styles -->
+    @vite('resources/css/tiptap/extensions.css')
+
     <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -66,11 +69,16 @@
         }
     </script>
     <style>
-        body {
-            font-family: "Poppins", serif;
-            font-weight: 400;
-            font-style: normal;
-        }
+            body {
+                font-family: "Poppins", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            /* Safety net: override any inline font-family from pasted content */
+            article, article *, .blog-content, .blog-content * {
+                font-family: inherit !important;
+            }
 
         .line-clamp-2 {
             overflow: hidden;
