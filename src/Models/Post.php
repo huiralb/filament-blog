@@ -12,7 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
-use FilamentTiptapEditor\TiptapEditor;
+use Weave\BlockNote\Forms\Components\BlockNoteEditor;
 use Firefly\FilamentBlog\Database\Factories\PostFactory;
 use Firefly\FilamentBlog\Enums\PostStatus;
 use Illuminate\Database\Eloquent\Builder;
@@ -175,10 +175,9 @@ class Post extends Model
                                 ->relationship('tags', 'name')
                                 ->columnSpanFull(),
                         ]),
-                    TiptapEditor::make('body')
-                        ->profile('default')
-                        ->disableFloatingMenus()
-                        ->extraInputAttributes(['style' => 'max-height: 30rem; min-height: 24rem'])
+                    BlockNoteEditor::make('body')
+                        ->minHeight(480)
+                        ->fullscreenButton()
                         ->required()
                         ->columnSpanFull(),
                     Fieldset::make('Feature Image')

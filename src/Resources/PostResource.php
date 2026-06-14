@@ -21,6 +21,7 @@ use Firefly\FilamentBlog\Resources\PostResource\Pages\ViewPost;
 use Firefly\FilamentBlog\Resources\PostResource\Widgets\BlogPostPublishedChart;
 use Firefly\FilamentBlog\Tables\Columns\UserPhotoName;
 use Illuminate\Support\Str;
+use Weave\BlockNote\Infolists\Components\BlockNoteEntry;
 
 class PostResource extends Resource
 {
@@ -123,8 +124,7 @@ class PostResource extends Resource
                         ]),
                     Fieldset::make('Description')
                         ->schema([
-                            TextEntry::make('body')
-                                ->html()
+                            BlockNoteEntry::make('body')
                                 ->columnSpanFull(),
                         ]),
                 ]),
